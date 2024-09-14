@@ -8,6 +8,7 @@ function App() {
   return (
     <>
     <MainLayout></MainLayout>
+    <h1>hello</h1>
     </>
   )
 }

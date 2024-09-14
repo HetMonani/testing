@@ -4,7 +4,7 @@ import Profile from '../image/profile.png';
 import { useEffect, useState } from 'react';
 import { Menubar } from './AddMenu';
 import {Progressbar} from './progressbar';
-
+  
 export function ContentArea({ isSidebarOpen }) {
   // State to hold current date
   const [currentDate, setCurrentDate] = useState('');
