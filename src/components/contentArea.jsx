@@ -44,7 +44,7 @@ export function ContentArea({ isSidebarOpen }) {
             <img src={Profile} alt="Profile" className="object-cover w-32 bg-gray-400 rounded-full " />
           </div>
         </Card>
-      <div className='flex justify-between'>
+      <div className='flex'>
       <Applications></Applications>
       <DigitalWallet></DigitalWallet>
         

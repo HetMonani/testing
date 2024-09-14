@@ -90,7 +90,7 @@ export function SideBar({ isOpen, toggleSidebar }) {
 
       {/* Sidebar */}
       <motion.div
-        className="fixed top-0 left-0 z-40 h-full bg-white border-r shadow-lg Sidebar bg-background/95 backdrop-blur-sm"
+        className="fixed top-0 left-0 z-40 h-full border-r shadow-lg Sidebar bg-background/95 backdrop-blur-sm"
         variants={sidebarVariants}
         initial="closed"
         animate={isOpen ? 'open' : 'closed'}
