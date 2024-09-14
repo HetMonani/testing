@@ -78,7 +78,7 @@ export function SideBar({ isOpen, toggleSidebar }) {
   return (
     <motion.div className="relative SidebarWrapper">
       {/* Background video */}
-      <video
+      {/* <video
         autoPlay
         loop
         muted
@@ -86,7 +86,7 @@ export function SideBar({ isOpen, toggleSidebar }) {
         style={{ transition: 'width 0.6s ease-in-out, opacity 0.8s ease-in-out' }}
       >
         <source src={VideoSrc} type="video/mp4" />
-      </video>
+      </video> */}
 
       {/* Sidebar */}
       <motion.div

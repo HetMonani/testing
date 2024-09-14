@@ -3,7 +3,9 @@ import { motion } from 'framer-motion';
 import Profile from '../image/profile.png';
 import { useEffect, useState } from 'react';
 import { Menubar } from './AddMenu';
-import {Progressbar} from './progressbar';
+
+import { DigitalWallet } from './digitalwallet';
+import { Applications } from './applications';
   
 export function ContentArea({ isSidebarOpen }) {
   // State to hold current date
@@ -26,11 +28,11 @@ export function ContentArea({ isSidebarOpen }) {
       {/* Menubar at the top */}
       <Menubar />
 
-      <div className='flex flex-col justify-between p-4 '>
-        <Card className="">
+      <div className='flex flex-col justify-between p-4'>
+        <Card className="mb-3">
           <div className="flex items-center justify-between px-6 py-4">
             {/* Text Content */}
-            <div className='flex flex-col bg-white'>
+            <div className='flex flex-col '>
               {/* Display Current Date */}
               <CardHeader className="pt-1 text-sm text-gray-500">{currentDate}</CardHeader>
 
@@ -42,8 +44,12 @@ export function ContentArea({ isSidebarOpen }) {
             <img src={Profile} alt="Profile" className="object-cover w-32 bg-gray-400 rounded-full " />
           </div>
         </Card>
+      <div className='flex justify-between'>
+      <Applications></Applications>
+      <DigitalWallet></DigitalWallet>
+        
       </div>
-      <Progressbar></Progressbar>
+      </div>
     </motion.div>
     
   );
