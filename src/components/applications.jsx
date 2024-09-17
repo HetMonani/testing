@@ -7,7 +7,7 @@ import { GraduationCap, Calendar, DollarSign, ChevronRight } from "lucide-react"
 import { Description } from '@radix-ui/react-dialog';
 
 const applications = [
-  { id: 1, title: "Merit-Based High School Scholarship", amount: 5000, deadline: "2024-08-31", color: "bg-gradient-to-r from-white to-yellow-50" ,Description:"A scholarship for students who have excelled in their 10th-grade exams, providing financial assistance to pursue higher education"},
+  { id: 1, title: "Merit-Based High School Scholarship", amount: 5000, deadline: "2024-10-12", color: "bg-gradient-to-r from-white to-yellow-50" ,Description:"A scholarship for students who have excelled in their 10th-grade exams, providing financial assistance to pursue higher education"},
   { id: 2, title: "National Talent Search Scholarship (NTSS)", amount: 7500, deadline: "2024-09-15", color: "bg-gradient-to-r from-white to-blue-50" ,Description:"Awarded to students who show exceptional academic talent and have cleared the NTSS exam after their 10th grade."},
   { id: 3, title: "Undergraduate Excellence Scholarship", amount: 3000, deadline: "2024-09-30", color: "bg-gradient-to-r from-white to-green-50" ,Description:"This scholarship supports students who have performed well in their 12th board exams and are enrolling in UG courses"},
   { id: 4, title: "Science Stream Scholarship", amount: 4000, deadline: "2024-10-15", color: "bg-gradient-to-r from-white to-purple-50" ,Description:"For students pursuing science courses after 12th, this scholarship offers financial support for tuition fees and related expenses."},
