@@ -15,7 +15,7 @@ import {
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { motion, AnimatePresence } from 'framer-motion'
 
-export function Menubar() {
+export  function Menubar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isDarkTheme, setIsDarkTheme] = useState(false)
   const [unreadNotifications, setUnreadNotifications] = useState(3)
@@ -30,14 +30,13 @@ export function Menubar() {
   }
 
   const handleSearch = () => {
-    // Handle the search logic here, e.g., send the search query to an API
     console.log('Search Query:', searchQuery)
   }
 
   return (
-    <div className="border-b shadow-md bg-background border-primary/5">
+    <div className="h-20 bg-white border-b border-gray-200 shadow-md">
       <div className="container px-6 mx-auto">
-        <div className="flex items-center justify-end h-20 gap-4">
+        <div className="flex items-center justify-end h-16 gap-4">
           {isSearchOpen ? (
             <motion.div
               initial={{ opacity: 0, y: -20 }}
@@ -48,17 +47,17 @@ export function Menubar() {
               <div className="relative w-full">
                 <Input
                   type="search"
-                  placeholder="Search..."
+                  placeholder="Search scholarships..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full transition-all duration-300 ease-in-out rounded-full bg-background border-primary focus:border-primary focus:ring-primary"
+                  className="w-full transition-all duration-300 ease-in-out bg-white border-gray-300 rounded-full focus:border-gray-500 focus:ring-gray-500"
                 />
                 <motion.div
                   whileTap={{ scale: 1.2 }}
                   className="absolute inset-y-0 flex items-center cursor-pointer right-3"
-                  onClick={handleSearch} // Trigger search query on click
+                  onClick={handleSearch}
                 >
-                  <Search className="w-5 h-5 text-primary hover:text-primary-foreground" />
+                  <Search className="w-5 h-5 text-gray-600 hover:text-gray-800" />
                 </motion.div>
               </div>
               <motion.div whileTap={{ scale: 1.2 }}>
@@ -66,7 +65,7 @@ export function Menubar() {
                   variant="ghost"
                   size="icon"
                   onClick={() => setIsSearchOpen(false)}
-                  className="ml-2 text-primary hover:bg-primary/40 hover:text-primary-foreground"
+                  className="ml-2 text-gray-600 hover:bg-gray-200 hover:text-gray-800"
                 >
                   <X className="w-5 h-5" />
                   <span className="sr-only">Close search</span>
@@ -79,7 +78,7 @@ export function Menubar() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setIsSearchOpen(true)}
-                className="text-primary hover:bg-primary/20 hover:text-primary-foreground"
+                className="text-gray-600 hover:bg-gray-200 hover:text-gray-800"
               >
                 <Search className="w-5 h-5" />
                 <span className="sr-only">Open search</span>
@@ -87,11 +86,10 @@ export function Menubar() {
             </motion.div>
           )}
 
-          {/* Notifications and other menu items remain the same */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Button variant="ghost" size="icon" className="relative text-primary hover:bg-primary/20 hover:text-primary-foreground group">
+                <Button variant="ghost" size="icon" className="relative text-gray-600 hover:bg-gray-200 hover:text-gray-800 group">
                   <Bell className="w-5 h-5 transition-transform duration-300 ease-in-out group-hover:rotate-12" />
                   <span className="sr-only">Open notifications</span>
                   <AnimatePresence>
@@ -112,24 +110,27 @@ export function Menubar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent 
               align="end" 
-              className="w-80 bg-background/90 backdrop-blur-xl border-primary/90 animate-in slide-in-from-top-10"
+              className="bg-white border-gray-200 w-80 bg-opacity-90 backdrop-blur-xl animate-in slide-in-from-top-10"
               sideOffset={5}
             >
-              <DropdownMenuLabel className="font-semibold text-primary">Notifications</DropdownMenuLabel>
-              <DropdownMenuSeparator className="bg-primary/30" />
-              {[{ title: "New message", desc: "You have a new message from John Doe" }, { title: "Task completed", desc: "Project X has been marked as complete" }, { title: "System update", desc: "A new system update is available" }]
-                .map((item, index) => (
-                  <DropdownMenuItem 
-                    key={index}
-                    className="transition-all duration-300 ease-in-out focus:bg-primary/50 focus:text-primary-foreground hover:bg-primary/50 group"
-                    onSelect={() => setUnreadNotifications(prev => Math.max(0, prev - 1))}
-                  >
-                    <div className="flex flex-col transition-transform duration-100 group-hover:translate-x-1">
-                      <span className="font-medium">{item.title}</span>
-                      <span className="text-sm text-muted-foreground">{item.desc}</span>
-                    </div>
-                  </DropdownMenuItem>
-                ))}
+              <DropdownMenuLabel className="font-semibold text-gray-800">Notifications</DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-gray-200" />
+              {[
+                { title: "New scholarship available", desc: "Check out the STEM Excellence Award" },
+                { title: "Application deadline", desc: "Merit Scholarship closes in 3 days" },
+                { title: "Recommendation received", desc: "Prof. Smith submitted your recommendation" }
+              ].map((item, index) => (
+                <DropdownMenuItem 
+                  key={index}
+                  className="transition-all duration-300 ease-in-out focus:bg-gray-100 focus:text-gray-800 hover:bg-gray-100 group"
+                  onSelect={() => setUnreadNotifications(prev => Math.max(0, prev - 1))}
+                >
+                  <div className="flex flex-col transition-transform duration-100 group-hover:translate-x-1">
+                    <span className="font-medium">{item.title}</span>
+                    <span className="text-sm text-gray-600">{item.desc}</span>
+                  </div>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
 
@@ -138,7 +139,7 @@ export function Menubar() {
               variant="ghost"
               size="icon"
               onClick={toggleTheme}
-              className="text-primary hover:bg-primary/20 hover:text-primary-foreground"
+              className="text-gray-600 hover:bg-gray-200 hover:text-gray-800"
             >
               {isDarkTheme ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               <span className="sr-only">Toggle theme</span>
@@ -148,10 +149,10 @@ export function Menubar() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <motion.div whileHover={{ scale: 1.2 }}>
-                <Button variant="ghost" size="icon" className="relative hover:bg-primary/20 group">
+                <Button variant="ghost" size="icon" className="relative hover:bg-gray-200 group">
                   <Avatar className="transition-transform duration-300 ease-in-out group-hover:scale-105">
                     <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-                    <AvatarFallback className="bg-primary/20 text-primary"><User className="w-4 h-4" /></AvatarFallback>
+                    <AvatarFallback className="text-gray-600 bg-gray-200"><User className="w-4 h-4" /></AvatarFallback>
                   </Avatar>
                   <span className="sr-only">Open user menu</span>
                 </Button>
@@ -159,18 +160,18 @@ export function Menubar() {
             </DropdownMenuTrigger>
             <DropdownMenuContent 
               align="end" 
-              className="w-56 bg-background/80 backdrop-blur-md border-primary/90 animate-out slide-in-from-top-5"
+              className="w-56 bg-white border-gray-200 bg-opacity-90 backdrop-blur-md animate-out slide-in-from-top-5"
               sideOffset={5}
             >
-              <DropdownMenuLabel className="font-semibold text-primary">My Account</DropdownMenuLabel>
-              <DropdownMenuSeparator className="bg-primary/30" />
+              <DropdownMenuLabel className="font-semibold text-gray-800">My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator className="bg-gray-200" />
               {[{ icon: User, label: "Profile" }, { icon: Settings, label: "Settings" }, { icon: HelpCircle, label: "Help" }, { icon: LogOut, label: "Log out" }]
                 .map((menuItem, index) => (
                   <DropdownMenuItem 
                     key={index}
-                    className="transition-all duration-300 ease-in-out focus:bg-primary/50 focus:text-primary-foreground hover:bg-primary/50 group"
+                    className="transition-all duration-300 ease-in-out focus:bg-gray-100 focus:text-gray-800 hover:bg-gray-100 group"
                   >
-                    <menuItem.icon className="w-4 h-4 mr-2 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
+                    <menuItem.icon className="w-4 h-4 mr-2 text-gray-600 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
                     {menuItem.label}
                   </DropdownMenuItem>
                 ))}

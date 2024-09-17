@@ -1,37 +1,34 @@
 import { motion } from 'framer-motion';
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronDown, Menu, X, Home, Settings, Users, FileText, BarChart, HelpCircle } from "lucide-react";
+import { ChevronDown, Menu, X, Home, Settings, Users, FileText, BarChart, HelpCircle, Upload } from "lucide-react";
 import { useState } from 'react';
-import Logo from '../image/logo.png'; // Your logo.
-import new1 from '../image/new1.png'; // Your logo.
-import VideoSrc from '../video/video.mp4'; // Your uploaded video
 
-// Navigation items structure
+import new1 from '../image/logo.png';
+
+
 const navItems = [
   { name: 'Dashboard', icon: Home },
   { name: 'User Management', icon: Users, children: [
-      { name: 'User List', icon: FileText },
-      { name: 'User Roles', icon: Settings },
-      { name: 'User Analytics', icon: BarChart },
+      { name: 'Profile Manage', icon: FileText },
+      { name: 'Applied ScholarShips', icon: Settings },
+      { name: 'Transaction', icon: BarChart },
     ]
   },
-  { name: 'Content', icon: FileText, children: [
-      { name: 'Articles', icon: FileText },
-      { name: 'Categories', icon: Settings },
-      { name: 'Tags', icon: Settings },
+  { name: 'My Documents', icon: FileText, children: [
+      { name: 'images', icon: FileText },
+      { name: 'Profile detail', icon: Settings },
+      { name: 'bank detail', icon: Settings },
     ]
   },
-  { name: 'Analytics', icon: BarChart },
+  { name: 'Upload', icon: Upload }, // Changed from 'Analytics' to 'Upload'
   { name: 'Settings', icon: Settings },
   { name: 'Help & Support', icon: HelpCircle },
 ];
 
-// Sidebar component with specific naming for elements
 export function SideBar({ isOpen, toggleSidebar }) {
   const [expandedItems, setExpandedItems] = useState([]);
 
-  // Toggle expanded state for submenus
   const toggleExpand = (itemName) => {
     setExpandedItems((prev) =>
       prev.includes(itemName)
@@ -40,7 +37,6 @@ export function SideBar({ isOpen, toggleSidebar }) {
     );
   };
 
-  // Render navigation items
   const renderNavItems = (items, level = 0) => {
     return items.map((item, index) => (
       <motion.li key={item.name}
@@ -69,7 +65,6 @@ export function SideBar({ isOpen, toggleSidebar }) {
     ));
   };
 
-  // Sidebar animation variants
   const sidebarVariants = {
     open: { width: '300px', transition: { duration: 0.6, ease: 'easeInOut' }, opacity: 1 },
     closed: { width: '60px', transition: { duration: 0.6, ease: 'easeInOut' }, opacity: 0.9 },
@@ -77,18 +72,6 @@ export function SideBar({ isOpen, toggleSidebar }) {
 
   return (
     <motion.div className="relative SidebarWrapper">
-      {/* Background video */}
-      {/* <video
-        autoPlay
-        loop
-        muted
-        className={`BackgroundVideo fixed top-0 right-0 w-full h-full object-cover z-0 transition-all mt-12 duration-300 ${isOpen ? 'w-[calc(100%-300px)] opacity-5' : 'w-full opacity-10'}`}
-        style={{ transition: 'width 0.6s ease-in-out, opacity 0.8s ease-in-out' }}
-      >
-        <source src={VideoSrc} type="video/mp4" />
-      </video> */}
-
-      {/* Sidebar */}
       <motion.div
         className="fixed top-0 left-0 z-40 h-full border-r shadow-lg Sidebar bg-background/95 backdrop-blur-sm"
         variants={sidebarVariants}
@@ -104,8 +87,8 @@ export function SideBar({ isOpen, toggleSidebar }) {
           {isOpen ? <X className="w-4 h-4 CloseIcon" /> : <Menu className="w-4 h-4 MenuIcon" />}
         </Button>
         {isOpen && (
-          <div className="py-2 border-b shadow-md border-primary/10 LogoContainer pl-9">
-            <img src={new1} alt="Logo" className="w-16 h-16 LogoImage" />
+          <div className="flex items-center justify-start h-20 pl-3 border-b shadow-md border-primary/10 LogoContainer" >
+            <img src={new1} alt="Logo" className="w-[25%] h-[8vh] LogoImage" />
           </div>
         )}
         <ScrollArea className="h-full px-2 SidebarScrollArea">
