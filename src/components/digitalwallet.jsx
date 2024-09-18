@@ -38,8 +38,8 @@ export function DigitalWallet() {
           </h3>
           <div className="p-2 border border-gray-200 rounded-md shadow-sm bg-gradient-to-r from-white to-gray-50">
             <p className="text-sm font-medium text-gray-800">Fall Semester Tuition</p>
-            <p className="text-xs text-gray-600">Due: Aug 15, 2023</p>
-            <p className="mt-1 text-sm font-bold text-gray-600">$3,500.00</p>
+            <p className="text-xs text-gray-600">Due: Aug 10, 2023</p>
+            <p className="mt-1 text-sm font-bold text-gray-600">$4,500.00</p>
           </div>
         </div>
 

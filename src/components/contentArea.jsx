@@ -9,9 +9,10 @@ export function ContentArea({ isSidebarOpen }) {
   const [currentDate, setCurrentDate] = useState('');
   const [balance, setBalance] = useState(5000.00);
 
+  // Format date as 'Day, Month Year'
   useEffect(() => {
     const today = new Date();
-    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     setCurrentDate(today.toLocaleDateString(undefined, options));
   }, []);
 
@@ -110,7 +111,7 @@ function DigitalWallet({ balance }) {
             className="flex items-baseline"
           >
             <DollarSign className="mr-1 text-2xl text-green-500" />
-            <span className="text-3xl font-bold text-gray-800">{balance.toFixed(2)}</span>
+            <span className="text-3xl font-bold text-gray-800">${balance.toFixed(2)}</span>
           </motion.div>
         </div>
 
@@ -122,7 +123,7 @@ function DigitalWallet({ balance }) {
             </h3>
             <div className="p-2 border border-gray-200 rounded-md shadow-sm bg-gradient-to-r from-white to-gray-50">
               <p className="text-sm font-medium text-gray-800">Fall Semester Scholarship</p>
-              <p className="text-xs text-gray-600">Due: Aug 15, 2023</p>
+              <p className="text-xs text-gray-600">Due: 31/ 08/ 2024</p>
               <p className="mt-1 text-sm font-bold text-gray-600">$3,500.00</p>
             </div>
           </div>

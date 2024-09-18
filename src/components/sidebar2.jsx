@@ -4,7 +4,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChevronDown, Menu, X, Home, Settings, Users, FileText, BarChart, HelpCircle, Upload } from "lucide-react";
 import { useState } from 'react';
 
-import new1 from '../image/logo.png';
+import logo from '../image/logo.png';
 
 
 const navItems = [
@@ -88,7 +88,7 @@ export function SideBar({ isOpen, toggleSidebar }) {
         </Button>
         {isOpen && (
           <div className="flex items-center justify-start h-20 pl-3 border-b shadow-md border-primary/10 LogoContainer" >
-            <img src={new1} alt="Logo" className="w-[25%] h-[8vh] LogoImage" />
+            <img src={logo} alt="Logo" className="w-[50%] h-[9vh] LogoImage" />
           </div>
         )}
         <ScrollArea className="h-full px-2 SidebarScrollArea">
